@@ -1,0 +1,36 @@
+:root{
+  --bg:#fff0f6;
+  --card:#ffeef6;
+  --accent:#ff6b9a;
+  --text:#3a2a2a;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Montserrat,system-ui,Segoe UI,Arial;
+  background-color:#000;
+  /* Dos capas de corazones (rosa y rojo) en SVG data-URI codificados para compatibilidad */
+  /* Un solo patrón de corazón, grande y muy espaciado */
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 29'%3E%3Cpath fill='%23ff2d55' d='M23.6,0C20.7,0,18.1,1.5,16,3.9C13.9,1.5,11.3,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.1,16,29,16,29s16-11.9,16-20.6C32,3.8,28.2,0,23.6,0z'/%3E%3C/svg%3E");
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 220px 198px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.wrap{padding:24px;width:100%;max-width:900px}
+.card-scene{display:flex;align-items:center;justify-content:center;min-height:70vh}
+.envelope{width:360px;position:relative}
+.cover{background:var(--card);border-radius:12px;padding:28px 20px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.12);transition:transform .6s ease}
+.cover .title{font-family:Great Vibes, cursive;font-size:36px;margin:0;color:var(--accent)}
+.btn{margin-top:18px;padding:10px 18px;border-radius:999px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(255,107,154,0.26)}
+.btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(255,107,154,0.2);box-shadow:none}
+.paper{position:absolute;left:50%;top:18%;transform:translateX(-50%) translateY(-10%);width:320px;background:#fff;border-radius:8px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,0.12);opacity:0;pointer-events:none;transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.paper-inner{font-family:Georgia,serif;color:#3b2f2f}
+.letter{white-space:pre-wrap;line-height:1.4;font-size:15px;margin:0 0 12px}
+.envelope.open .cover{transform:translateY(-120px) rotateX(10deg)}
+.envelope.open .paper{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+@media (max-width:420px){.envelope{width:92vw}.paper{width:86vw}}
