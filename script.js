@@ -20,3 +20,11 @@ document.addEventListener('DOMContentLoaded',function(){
   openBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') openBtn.click(); });
   closeBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') closeBtn.click(); });
 });
+
+const music = document.getElementById("bg-music");
+const openBtn = document.getElementById("openBtn");
+
+openBtn.addEventListener("click", () => {
+  music.volume = 0.3; // volumen suave
+  music.play();
+});
