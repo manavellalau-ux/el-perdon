@@ -1,30 +1,39 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function () {
   const openBtn = document.getElementById('openBtn');
   const closeBtn = document.getElementById('closeBtn');
   const envelope = document.getElementById('envelope');
   const paper = document.getElementById('paper');
+  const music = document.getElementById('bg-music');
 
-  openBtn.addEventListener('click',()=>{
+  openBtn.addEventListener('click', () => {
     envelope.classList.add('open');
-    paper.setAttribute('aria-hidden','false');
-    setTimeout(()=>{ closeBtn.focus(); },600);
+    paper.setAttribute('aria-hidden', 'false');
+
+    // 🎵 música desde el segundo 36
+    music.currentTime = 36;
+    music.volume = 0.3;
+    music.play();
+
+    setTimeout(() => {
+      closeBtn.focus();
+    }, 600);
   });
 
-  closeBtn.addEventListener('click',()=>{
+  closeBtn.addEventListener('click', () => {
     envelope.classList.remove('open');
-    paper.setAttribute('aria-hidden','true');
-    setTimeout(()=>{ openBtn.focus(); },300);
+    paper.setAttribute('aria-hidden', 'true');
+
+    setTimeout(() => {
+      openBtn.focus();
+    }, 300);
   });
 
-  // allow Enter/Space to open when focused
-  openBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') openBtn.click(); });
-  closeBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') closeBtn.click(); });
-});
+  // permitir Enter / Espacio
+  openBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') openBtn.click();
+  });
 
-const music = document.getElementById("bg-music");
-const openBtn = document.getElementById("openBtn");
-
-openBtn.addEventListener("click", () => {
-  music.volume = 0.3; // volumen suave
-  music.play();
+  closeBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') closeBtn.click();
+  });
 });
